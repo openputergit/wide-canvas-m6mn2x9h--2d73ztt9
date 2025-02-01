@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Portfolio - B.Tech CSE Student</title>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .neumorphism {
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2),
+                -8px -8px 15px rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+        }
+
+        .skill-logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f0f0f0]">
+    <!-- Navigation -->
+    <nav class="p-4 fixed w-full bg-white neumorphism z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">Portfolio</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-600">Home</a>
+                <a href="#skills" class="hover:text-blue-600">Skills</a>
+                <a href="#projects" class="hover:text-blue-600">Projects</a>
+                <a href="#achievements" class="hover:text-blue-600">Achievements</a>
+                <a href="#community" class="hover:text-blue-600">Community</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button onclick="toggleMenu()" class="text-2xl">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed w-full bg-white z-40 mt-16 neumorphism">
+        <div class="flex flex-col p-4 space-y-4">
+            <a href="#home" class="hover:text-blue-600">Home</a>
+            <a href="#skills" class="hover:text-blue-600">Skills</a>
+            <a href="#projects" class="hover:text-blue-600">Projects</a>
+            <a href="#achievements" class="hover:text-blue-600">Achievements</a>
+            <a href="#community" class="hover:text-blue-600">Community</a>
+            <a href="#contact" class="hover:text-blue-600">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-16 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span id="typed"></span></h1>
+                <p class="text-xl mb-8">Frontend Developer & UX Designer</p>
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="bg-black text-white px-6 py-3 neumorphism hover:bg-gray-800">Contact Me</a>
+                    <a href="#projects" class="bg-white px-6 py-3 neumorphism hover:bg-gray-100">View Projects</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZGV2ZWxvcGVyfHx8fHx8MTcwNjI4NTY0NA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+                    alt="Profile" class="w-64 h-64 mx-auto rounded-full object-cover neumorphism floating">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="skill-card bg-yellow-200 p-6 neumorphism" data-aos="flip-left">
+                    <h3 class="text-xl font-bold mb-4">Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/HTML5_logo_and_wordmark.svg" alt="HTML" class="skill-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/CSS3_logo_and_wordmark.svg" alt="CSS" class="skill-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/JavaScript_logo_2.svg" alt="JavaScript" class="skill-logo">
+                        <img src="https://reactjs.org/logo-og.png" alt="React" class="skill-logo">
+                        <img src="https://spring.io/images/spring-logo.svg" alt="Spring" class="skill-logo">
+                    </div>
+                </div>
+                <div class="skill-card bg-blue-200 p-6 neumorphism" data-aos="flip-left" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-4">Design</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Figma-logo.svg" alt="Figma" class="skill-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/4/49/Adobe_Photoshop_logo_2021.svg" alt="Photoshop" class="skill-logo">
+                    </div>
+                </div>
+                <div class="skill-card bg-green-200 p-6 neumorphism" data-aos="flip-left" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-4">Languages</h3>
+                    <ul class="space-y-2">
+                        <li>English</li>
+                        <li>Hindi</li>
+                        <li>Bengali</li>
+                    </ul>
+                </div>
+                <div class="skill-card bg-pink-200 p-6 neumorphism" data-aos="flip-left" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-4">Soft Skills</h3>
+                    <ul class="space-y-2">
+                        <li>Leadership</li>
+                        <li>Event Management</li>
+                        <li>Communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white p-6 neumorphism" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y29kaW5nfHx8fHx8MTcwNjI4NTY0NA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+                        alt="Project 1" class="w-full h-48 object-cover mb-4 neumorphism">
+                    <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                    <p class="mb-4">A full-stack e-commerce solution built with React and Spring Boot.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Spring</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">SQL</span>
+                    </div>
+                </div>
+                <div class="project-card bg-white p-6 neumorphism" data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                    <p class="mb-4">An interactive portfolio showcasing skills and projects.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">TailwindCSS</span>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Achievements</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="achievement-card bg-purple-200 p-6 neumorphism" data-aos="fade-up">
+                    <div class="text-2xl font-bold mb-2">🏆 Hackathon Winner</div>
+                    <p>First place in University Hackathon 2023</p>
+                </div>
+                <div class="achievement-card bg-orange-200 p-6 neumorphism" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-2xl font-bold mb-2">📚 Dean's List</div>
+                    <p>Consistent academic excellence</p>
+                </div>
+                <div class="achievement-card bg-blue-200 p-6 neumorphism" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-2xl font-bold mb-2">🌟 Best Project</div>
+                    <p>Department project competition winner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Work Section -->
+    <section id="community" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Community Work</h2>
+            <div class="flex flex-col space-y-6">
+                <div class="bg-yellow-200 p-6 neumorphism" data-aos="fade-up">
+                    <h3 class="text-xl font-bold">IEI Students' Chapter of CSE</h3>
+                    <p>Designer (Apr 2023 - Jul 2024)</p>
+                    <p>Social Media Manager (Oct 2023 - Jul 2024)</p>
+                </div>
+                <div class="bg-blue-200 p-6 neumorphism" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold">Resourcio Community</h3>
+                    <p>Designer (Sep 2023 - Jul 2024)</p>
+                    <p>Design Lead (Jul 2024 - Present)</p>
+                </div>
+                <div class="bg-green-200 p-6 neumorphism" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold">GDG On Campus AOT</h3>
+                    <p>Design Lead (Sep 2024 - Present)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Projects Section -->
+    <section id="design-projects" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Design Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white p-6 neumorphism" data-aos="zoom-in">
+                    <h3 class="text-xl font-bold mb-4">Design Project 1</h3>
+                    <p class="mb-4">Brief description of the project.</p>
+                    <div class="flex gap-2">
+                        <a href="#" class="bg-gray-200 px-3 py-1 rounded-full text-sm">Figma</a>
+                        <a href="#" class="bg-gray-200 px-3 py-1 rounded-full text-sm">Notion</a>
+                    </div>
+                </div>
+                <!-- Add more design project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Testimonials</h2>
+            <div class="flex flex-col md:flex-row md:space-x-6">
+                <div class="bg-white p-6 neumorphism flex-1" data-aos="fade-up">
+                    <p>"An exceptional developer with a keen eye for design!"</p>
+                    <cite>- Client A</cite>
+                </div>
+                <div class="bg-white p-6 neumorphism flex-1" data-aos="fade-up" data-aos-delay="100">
+                    <p>"Delivers high-quality work on time, every time!"</p>
+                    <cite>- Client B</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Contact Me</h2>
+            <div class="max-w-2xl mx-auto">
+                <form onsubmit="handleSubmit(event)" class="space-y-6 bg-white p-8 neumorphism">
+                    <div>
+                        <label class="block mb-2">Name</label>
+                        <input type="text" required class="w-full p-3 neumorphism">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Email</label>
+                        <input type="email" required class="w-full p-3 neumorphism">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Message</label>
+                        <textarea required class="w-full p-3 h-32 neumorphism"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-black text-white py-3 neumorphism hover:bg-gray-800">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-2xl"><i class="bi bi-github"></i></a>
+                <a href="#" class="text-2xl"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-2xl"><i class="bi bi-twitter"></i></a>
+            </div>
+            <p>© 2024 Interactive Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Typed.js initialization
+        var typed = new Typed('#typed', {
+            strings: ['Your Name', 'a Developer', 'a Designer'],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth < 768) {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+
+</html>
